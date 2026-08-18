@@ -5,6 +5,7 @@ import {
   Copy, Check, Send, AlertCircle, ExternalLink, Settings, Eye
 } from 'lucide-react';
 import { Lead, LeadStats, LeadStatus } from '../types';
+import { ASSET_IMAGES, handleImageError } from '../constants/assets';
 
 interface AdminDashboardProps {
   isOpen: boolean;
@@ -238,10 +239,11 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ isOpen, onClose 
           <div className="flex items-center gap-3">
             <div className="relative w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-500 to-blue-600 p-[1.5px] shadow-md shadow-cyan-500/20 overflow-hidden shrink-0">
               <img
-                src="/logo.png"
-                alt="Soft Tech Admin Logo"
+                src={ASSET_IMAGES.logo.local}
+                alt={ASSET_IMAGES.logo.alt}
                 referrerPolicy="no-referrer"
                 className="w-full h-full object-cover rounded-[9px]"
+                onError={(e) => handleImageError(e, ASSET_IMAGES.logo.cdn)}
               />
             </div>
             <div>

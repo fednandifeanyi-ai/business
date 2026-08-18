@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Bot, Menu, X, ArrowRight, MessageCircle, Shield, Sparkles } from 'lucide-react';
+import { ASSET_IMAGES, handleImageError } from '../constants/assets';
 
 interface NavbarProps {
   onOpenAdmin: () => void;
@@ -47,16 +48,19 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAdmin, onGetStarted }) => 
           >
             <div className="relative w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-[#0A1E3F] border border-blue-500/40 p-1 shadow-md shadow-blue-900/15 group-hover:scale-105 transition-transform overflow-hidden flex items-center justify-center">
               <img
-                src="/logo.png"
-                alt="Soft Tech World & AI Automation Logo"
+                src={ASSET_IMAGES.logo.local}
+                alt={ASSET_IMAGES.logo.alt}
                 referrerPolicy="no-referrer"
                 className="w-full h-full object-contain rounded-lg"
                 onError={(e) => {
-                  // Fallback to bot icon if image fails
                   const target = e.currentTarget;
-                  target.style.display = 'none';
-                  if (target.nextElementSibling) {
-                    (target.nextElementSibling as HTMLElement).style.display = 'flex';
+                  if (target.src !== ASSET_IMAGES.logo.cdn) {
+                    target.src = ASSET_IMAGES.logo.cdn;
+                  } else {
+                    target.style.display = 'none';
+                    if (target.nextElementSibling) {
+                      (target.nextElementSibling as HTMLElement).style.display = 'flex';
+                    }
                   }
                 }}
               />

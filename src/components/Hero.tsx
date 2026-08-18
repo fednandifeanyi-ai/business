@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Sparkles, MessageCircle, ArrowRight, Bot, Cpu, Zap, Activity, CheckCircle2, ShieldCheck, Maximize2, Eye, X } from 'lucide-react';
+import { ASSET_IMAGES, handleImageError } from '../constants/assets';
 
 interface HeroProps {
   onStartProject: () => void;
@@ -155,11 +156,12 @@ export const Hero: React.FC<HeroProps> = ({ onStartProject }) => {
                 {viewMode === 'flyer' ? (
                   <div className="relative group rounded-2xl overflow-hidden bg-[#0A1E3F] border border-[#E5DDCF] shadow-lg">
                     <img
-                      src="/home-picture.jpg"
-                      alt="Soft Tech World & AI Automation Home Picture"
+                      src={ASSET_IMAGES.homePicture.local}
+                      alt={ASSET_IMAGES.homePicture.alt}
                       referrerPolicy="no-referrer"
                       className="w-full h-auto max-h-[460px] object-cover rounded-2xl transition-transform duration-500 group-hover:scale-[1.02] cursor-pointer"
                       onClick={() => setIsLightboxOpen(true)}
+                      onError={(e) => handleImageError(e, ASSET_IMAGES.homePicture.cdn)}
                     />
                     
                     {/* Hover Overlay with Action Button */}
@@ -296,10 +298,11 @@ export const Hero: React.FC<HeroProps> = ({ onStartProject }) => {
 
             <div className="w-full max-h-[82vh] overflow-auto flex items-center justify-center rounded-2xl bg-slate-100 p-2">
               <img
-                src="/home-picture.jpg"
-                alt="Soft Tech World & AI Automation Home Picture (Full View)"
+                src={ASSET_IMAGES.homePicture.local}
+                alt={ASSET_IMAGES.homePicture.alt}
                 referrerPolicy="no-referrer"
                 className="max-h-[80vh] w-auto object-contain rounded-xl shadow-lg"
+                onError={(e) => handleImageError(e, ASSET_IMAGES.homePicture.cdn)}
               />
             </div>
 

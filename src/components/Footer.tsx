@@ -1,5 +1,6 @@
 import React from 'react';
 import { Bot, MessageCircle, Phone, Mail, ArrowUp, ShieldCheck, Sparkles } from 'lucide-react';
+import { ASSET_IMAGES, handleImageError } from '../constants/assets';
 
 interface FooterProps {
   onOpenAdmin: () => void;
@@ -41,15 +42,19 @@ export const Footer: React.FC<FooterProps> = ({ onOpenAdmin }) => {
             <div className="flex items-center gap-3">
               <div className="relative w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-[#081833] border border-blue-500/40 p-1 shadow-md overflow-hidden flex items-center justify-center">
                 <img
-                  src="/logo.png"
-                  alt="Soft Tech World Logo"
+                  src={ASSET_IMAGES.logo.local}
+                  alt={ASSET_IMAGES.logo.alt}
                   referrerPolicy="no-referrer"
                   className="w-full h-full object-contain rounded-lg"
                   onError={(e) => {
                     const target = e.currentTarget;
-                    target.style.display = 'none';
-                    if (target.nextElementSibling) {
-                      (target.nextElementSibling as HTMLElement).style.display = 'flex';
+                    if (target.src !== ASSET_IMAGES.logo.cdn) {
+                      target.src = ASSET_IMAGES.logo.cdn;
+                    } else {
+                      target.style.display = 'none';
+                      if (target.nextElementSibling) {
+                        (target.nextElementSibling as HTMLElement).style.display = 'flex';
+                      }
                     }
                   }}
                 />

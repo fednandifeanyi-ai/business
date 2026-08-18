@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { PORTFOLIO_DATA } from '../data/servicesData';
 import { PortfolioItem } from '../types';
 import { Sparkles, Eye, ArrowRight, Tag, Layers, CheckCircle2 } from 'lucide-react';
+import { ASSET_IMAGES, handleImageError } from '../constants/assets';
 
 interface PortfolioSectionProps {
   onSelectProject: (serviceName: string, projectTitle: string) => void;
@@ -75,6 +76,7 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = ({ onSelectProj
                     alt={item.title}
                     referrerPolicy="no-referrer"
                     className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                    onError={(e) => handleImageError(e, ASSET_IMAGES.flyer.cdn)}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0A1E3F]/90 via-[#0A1E3F]/30 to-transparent flex flex-col justify-between p-4">
                     <div className="flex items-center justify-between z-10">
@@ -212,6 +214,7 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = ({ onSelectProj
                   alt={selectedPreview.title}
                   referrerPolicy="no-referrer"
                   className="w-full h-auto object-contain max-h-72 mx-auto"
+                  onError={(e) => handleImageError(e, ASSET_IMAGES.flyer.cdn)}
                 />
               </div>
             )}
