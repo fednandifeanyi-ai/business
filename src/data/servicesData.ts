@@ -141,7 +141,7 @@ export const PORTFOLIO_DATA: PortfolioItem[] = [
     metrics: 'Official Brand Asset • High-Resolution',
     tags: ['Brand Flyer', 'Graphic Design', 'AI Automation', 'Digital Ads'],
     gradient: 'from-[#0A1E3F] via-[#0F2C59] to-blue-900',
-    image: '/hero-flyer.jpg'
+    image: './hero-flyer.jpg'
   },
   {
     id: 'port-1',

@@ -24,6 +24,13 @@ export const ASSET_IMAGES = {
     root: '/hero-flyer.jpg',
     cdn: 'https://i.ibb.co/DHnmvqdM/Whats-App-Image-2026-08-14-at-10-46-34-PM.jpg',
     alt: 'Soft Tech World & AI Automation Official Creative Flyer'
+  },
+  // Official Display Picture / Founder / WhatsApp Avatar
+  displayPicture: {
+    local: './display-picture.jpg',
+    root: '/display-picture.jpg',
+    cdn: 'https://i.ibb.co/DHnmvqdM/Whats-App-Image-2026-08-14-at-10-46-34-PM.jpg',
+    alt: 'Soft Tech World & AI Automation Official Display Picture'
   }
 };
 

@@ -117,10 +117,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAdmin, onGetStarted }) => 
             >
               <div className="relative">
                 <img
-                  src="/display-picture.jpg"
-                  alt="Soft Tech DP"
+                  src={ASSET_IMAGES.displayPicture.local}
+                  alt={ASSET_IMAGES.displayPicture.alt}
                   referrerPolicy="no-referrer"
                   className="w-7 h-7 rounded-full object-cover border border-emerald-500"
+                  onError={(e) => handleImageError(e, ASSET_IMAGES.displayPicture.cdn)}
                 />
                 <span className="absolute bottom-0 right-0 w-2 h-2 rounded-full bg-emerald-500 border border-white"></span>
               </div>

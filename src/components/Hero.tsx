@@ -71,10 +71,11 @@ export const Hero: React.FC<HeroProps> = ({ onStartProject }) => {
               >
                 <div className="relative shrink-0">
                   <img
-                    src="/display-picture.jpg"
-                    alt="Lead Consultant DP"
+                    src={ASSET_IMAGES.displayPicture.local}
+                    alt={ASSET_IMAGES.displayPicture.alt}
                     referrerPolicy="no-referrer"
                     className="w-8 h-8 rounded-full object-cover border-2 border-white"
+                    onError={(e) => handleImageError(e, ASSET_IMAGES.displayPicture.cdn)}
                   />
                   <span className="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-emerald-300 border border-emerald-800"></span>
                 </div>

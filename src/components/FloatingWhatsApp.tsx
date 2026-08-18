@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { MessageCircle, X, Sparkles, Send, ShieldCheck } from 'lucide-react';
+import { ASSET_IMAGES, handleImageError } from '../constants/assets';
 
 export const FloatingWhatsApp: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -30,10 +31,11 @@ export const FloatingWhatsApp: React.FC = () => {
             <div className="flex items-center gap-2.5">
               <div className="relative">
                 <img
-                  src="/display-picture.jpg"
-                  alt="Soft Tech World Lead Consultant"
+                  src={ASSET_IMAGES.displayPicture.local}
+                  alt={ASSET_IMAGES.displayPicture.alt}
                   referrerPolicy="no-referrer"
                   className="w-11 h-11 rounded-full object-cover border-2 border-emerald-500 shadow-sm"
+                  onError={(e) => handleImageError(e, ASSET_IMAGES.displayPicture.cdn)}
                 />
                 <span className="absolute bottom-0 right-0 w-3.5 h-3.5 rounded-full bg-emerald-500 border-2 border-white ring-1 ring-emerald-600"></span>
               </div>
@@ -98,10 +100,11 @@ export const FloatingWhatsApp: React.FC = () => {
       >
         <div className="relative">
           <img
-            src="/display-picture.jpg"
-            alt="Soft Tech DP"
+            src={ASSET_IMAGES.displayPicture.local}
+            alt={ASSET_IMAGES.displayPicture.alt}
             referrerPolicy="no-referrer"
             className="w-9 h-9 rounded-full object-cover border-2 border-white"
+            onError={(e) => handleImageError(e, ASSET_IMAGES.displayPicture.cdn)}
           />
           <span className="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-emerald-400 border border-white"></span>
         </div>

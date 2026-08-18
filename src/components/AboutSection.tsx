@@ -1,5 +1,6 @@
 import React from 'react';
 import { Bot, Layers, Sparkles, TrendingUp, CheckCircle, ArrowRight, Shield } from 'lucide-react';
+import { ASSET_IMAGES, handleImageError } from '../constants/assets';
 
 interface AboutSectionProps {
   onStartProject: () => void;
@@ -137,10 +138,11 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onStartProject }) =>
               <div className="p-6 rounded-2xl bg-[#081833] border border-blue-700/50 text-center w-full max-w-sm shadow-xl flex flex-col items-center">
                 <div className="relative mb-3">
                   <img
-                    src="/display-picture.jpg"
-                    alt="Soft Tech World Lead Consultant"
+                    src={ASSET_IMAGES.displayPicture.local}
+                    alt={ASSET_IMAGES.displayPicture.alt}
                     referrerPolicy="no-referrer"
                     className="w-20 h-20 rounded-full object-cover border-2 border-blue-400 shadow-lg"
+                    onError={(e) => handleImageError(e, ASSET_IMAGES.displayPicture.cdn)}
                   />
                   <span className="absolute bottom-0 right-0 w-4 h-4 rounded-full bg-emerald-500 border-2 border-[#081833]"></span>
                 </div>

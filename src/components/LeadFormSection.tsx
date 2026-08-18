@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import confetti from 'canvas-confetti';
 import { Sparkles, MessageCircle, Send, CheckCircle2, AlertCircle, Phone, Mail, Clock, ShieldCheck, ArrowRight } from 'lucide-react';
 import { Lead } from '../types';
+import { ASSET_IMAGES, handleImageError } from '../constants/assets';
 
 interface LeadFormSectionProps {
   initialService?: string;
@@ -169,10 +170,11 @@ export const LeadFormSection: React.FC<LeadFormSectionProps> = ({
               <div className="flex items-center gap-4 p-4 rounded-2xl bg-[#FAF7F2] border border-[#D5C8B4] mb-6">
                 <div className="relative shrink-0">
                   <img
-                    src="/display-picture.jpg"
-                    alt="Soft Tech World Lead Consultant"
+                    src={ASSET_IMAGES.displayPicture.local}
+                    alt={ASSET_IMAGES.displayPicture.alt}
                     referrerPolicy="no-referrer"
                     className="w-16 h-16 rounded-2xl object-cover border-2 border-blue-600 shadow-md"
+                    onError={(e) => handleImageError(e, ASSET_IMAGES.displayPicture.cdn)}
                   />
                   <span className="absolute -bottom-1 -right-1 w-4 h-4 rounded-full bg-emerald-500 border-2 border-white ring-1 ring-emerald-600"></span>
                 </div>
